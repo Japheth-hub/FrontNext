@@ -1,6 +1,6 @@
 import Link from "next/link"
 import './globals.css'
-
+import perfil from '../assets/perfil.jpg'
 
 export const metadata = {
   title: 'Next.js',
@@ -8,10 +8,13 @@ export const metadata = {
 }
 
 export default function RootLayout({ children }) {
+
+  console.log(perfil.src)
+
   return (
     <html lang="en">
       <body>
-      <div className="flex justify-around bg-slate-700 py-3 text-amber-400 font-bold">
+      <div className="flex justify-around bg-slate-700 py-3 text-amber-400 font-bold fixed w-full">
         <Link href='/'><h1 className="text-center text-4xl  ">Red Social</h1></Link>
         <ul className=" flex gap-4 text-lg justify-center items-center">
           <Link href='/posts'><li>Posteos</li></Link>
@@ -19,7 +22,25 @@ export default function RootLayout({ children }) {
           <Link href='/todos'><li>Tareas</li></Link>
         </ul>
       </div>
-        {children}
+      <div className="flex pt-16">
+        <div className="max-w-48 fixed h-screen bg-slate-400">
+          <div className="imgProfile w-full">
+            <img className="w-4/5 mx-auto my-2 rounded-3xl" src={perfil.src} alt="Perfil" />
+          </div>
+          <h3 className="font-bold text-center">Angel Ramirez</h3>
+          <p>UserName : <span>JaphethRam</span></p>
+          <p>Email : <span>angel@mail.com</span></p>
+          <ul>
+            <li>Street : <span>Principal</span></li>
+            <li>Suit : <span>458 - B</span></li>
+            <li>City : Puebla, Mexico</li>
+          </ul>
+          <p>Phone : <span>1234587960</span></p>
+        </div>
+        <div className="children ml-48">
+          {children}
+        </div>
+      </div>
       </body>
     </html>
   )
