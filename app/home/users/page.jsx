@@ -1,6 +1,5 @@
 import Link from "next/link"
 import User from "@/components/userComponent"
-// import User from "../../components/userComponent"
 
 
 async function getUsers(){
@@ -11,12 +10,14 @@ async function getUsers(){
 }
 
 export default async function Users() {
+   
 
     const users = await getUsers()
 
   return (
     <div>
         <Link href='/'><p>Home</p></Link>
+        
         <h2>Users</h2>
         <ul>
             {

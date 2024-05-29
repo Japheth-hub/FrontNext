@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { Suspense } from "react"
-import User from '../../users/page'
+import User from '../../home/users/page'
 
 async function getUser(id){
   const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
